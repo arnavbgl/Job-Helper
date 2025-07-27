@@ -31,12 +31,14 @@ const Header = () => {
 
   return (
     <>
-      <nav className="py-4 flex justify-between items-center">
-        <Link to="/">
+      <nav className="py-4 w-full flex items-center">
+        {/* Logo on the left */}
+        <Link to="/" className="flex-shrink-0">
           <img src="/logo.png" className="h-20" alt="Job Helper Logo" />
         </Link>
 
-        <div className="flex gap-8">
+        {/* Center content - can expand to fill available space */}
+        <div className="flex-1 flex justify-center items-center gap-8">
           <SignedOut>
             <Button variant="outline" onClick={() => setShowSignIn(true)}>
               Login
@@ -51,6 +53,12 @@ const Header = () => {
                 </Button>
               </Link>
             )}
+          </SignedIn>
+        </div>
+
+        {/* Profile section pinned to the right edge */}
+        <div className="flex-shrink-0">
+          <SignedIn>
             <UserButton
               appearance={{
                 elements: {
